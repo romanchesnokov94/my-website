@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Онлайн IQ‑тест</title>
+	<meta name="description" content="Бесплатный онлайн IQ‑тест: 10 вопросов за 10 минут. Узнайте свою примерную оценку IQ.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%92%A1%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+	<div class="container">
+		<header class="site-header">
+			<h1>Онлайн IQ‑тест</h1>
+		</header>
+
+		<main>
+			<section id="screen-start" class="screen">
+				<div class="card">
+					<h2>Готовы проверить IQ?</h2>
+					<p class="subtitle">10 вопросов • 10 минут • мгновенный результат</p>
+					<ul class="info-list">
+						<li>Вопросы на логику, закономерности, аналогии, числа</li>
+						<li>Можно пропускать вопросы, время ограничено</li>
+						<li>Результат — ориентировочная оценка IQ (не клиническая)</li>
+					</ul>
+					<button id="btn-start" class="btn btn-primary">Начать тест</button>
+				</div>
+			</section>
+
+			<section id="screen-quiz" class="screen hidden" aria-live="polite">
+				<div class="quiz-header">
+					<div class="progress">
+						<div id="progress-bar" class="progress-bar" style="width:0%"></div>
+					</div>
+					<div class="meta">
+						<div id="progress-text" class="meta-item">Вопрос 1 из 10</div>
+						<div id="timer" class="meta-item time" aria-live="polite">10:00</div>
+					</div>
+				</div>
+
+				<div class="card question-card">
+					<h2 id="question-text" class="question-text">Вопрос загружается…</h2>
+					<ul id="choices-list" class="choices" role="listbox" aria-label="Варианты ответа">
+						<!-- Варианты рендерятся скриптом -->
+					</ul>
+					<div class="actions">
+						<button id="btn-skip" class="btn btn-ghost">Пропустить</button>
+						<button id="btn-next" class="btn btn-primary" disabled>Далее</button>
+					</div>
+				</div>
+			</section>
+
+			<section id="screen-result" class="screen hidden" aria-live="polite">
+				<div class="card result-card">
+					<h2>Ваш результат</h2>
+					<p class="stat"><span id="stat-correct">0</span>/<span id="stat-total">10</span> правильных</p>
+					<div class="iq-box">
+						<div class="iq-value" id="iq-value">—</div>
+						<div class="iq-scale">
+							<div class="iq-scale-bar">
+								<div id="iq-indicator" class="iq-indicator" style="left:0%"></div>
+							</div>
+							<div class="iq-scale-labels">
+								<span>70</span><span>100</span><span>130</span><span>150</span>
+							</div>
+						</div>
+						<p id="iq-interpretation" class="interpretation">Интерпретация появится здесь</p>
+					</div>
+					<div class="actions">
+						<button id="btn-restart" class="btn">Пройти снова</button>
+					</div>
+					<p class="note">Этот тест развлекательный и даёт приблизительную оценку IQ. Для клинической оценки нужна профессиональная диагностика.</p>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<small>© <span id="year"></span> IQ Test. Все права защищены.</small>
+		</footer>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>
